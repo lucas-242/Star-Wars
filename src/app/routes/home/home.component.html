@@ -1,0 +1,75 @@
+<!--Hint-->
+<div class="row mx-sm-auto justify-content-sm-center">
+  <div class="col-1"></div>
+
+  <div class="col-12 col-sm-8 mb-3 trasition" [ngClass]="{'opacity': showHint}">
+    insert the planet name or id, you must
+    <img src="../../../assets/yoda.png">
+  </div>
+</div>
+
+
+
+<form #search="ngForm">
+  <div class="row mx-sm-auto justify-content-sm-center">
+
+    <div class="col-1"></div>
+
+    <!--Search Bar-->
+    <div class="col-12 col-sm-8 input-group mb-3">
+      <input class="form-control" type="text" aria-label="search" name="searchPlanet" ngModel>
+      <div class="input-group-append">
+          <button class="btn bg-warning text-light" type="button" (click)="searchPlanets(search.value.searchPlanet)">search</button>
+      </div>
+    </div>
+
+    <!--Hint Button-->
+    <div class="form-group col-4 col-sm-2">
+      <button class="btn bg-warning text-light" type="button" (click)="showHint = !showHint">hint</button>
+    </div>
+
+  </div>
+</form>
+
+
+<!--Principal content-->
+<div class="row mx-auto justify-content-center">
+
+  <!--PLanets in the search-->
+  <ng-container *ngIf="planetsSearched?.length != 0">
+    <div class="card col-12 col-sm-6 col-md-6 text-center"
+      *ngFor="let planet of planetsSearched | paginate : { itemsPerPage: 1, currentPage: p}">
+      <div class="card-body">
+        <div class="card-title font-large">{{ planet.name | lowercase }}</div>
+        <div class="card-text">Population: {{ planet.population }}</div>
+        <div class="card-text">Climate: {{ planet.climate }}</div>
+        <div class="card-text">Terrain: {{ planet.terrain }}</div>
+        <div class="card-text">Featured in {{ planet.films.length }} Films</div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!--Random Planets-->
+  <div class="card col-12 col-sm-6 text-center" *ngIf="planetsSearched?.length == 0">
+    <div class="card-body">
+      <div class="card-title font-large">{{ planets[planets?.length - 1]?.name | lowercase }}</div>
+      <div class="card-text">Population: {{ planets[planets?.length - 1]?.population }}</div>
+      <div class="card-text">Climate: {{ planets[planets?.length - 1]?.climate }}</div>
+      <div class="card-text">Terrain: {{ planets[planets?.length - 1]?.terrain }}</div>
+      <div class="card-text">Featured in {{ planets[planets?.length - 1]?.films?.length }} Films</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-auto justify-content-center">
+
+  <!--Pagination-->
+  <pagination-controls class="col-12 col-sm-6 text-center" (pageChange)="p = $event" responsive="true"
+    autoHide="true" *ngIf="planetsSearched?.length != 0">
+  </pagination-controls>
+
+  <!--Next button - Generate random planet-->
+  <div class="col-12 col-sm-6 text-center mt-4">
+    <button class="btn font-large" type="button" (click)="getPlanetByRandomId()">Next</button>
+  </div>
+</div>
