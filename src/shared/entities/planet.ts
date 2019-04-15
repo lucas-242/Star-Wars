@@ -2,7 +2,7 @@ export class ModelPlanet {
     count: number;
     next: string;
     previous: string;
-    results: Planet[]
+    results: Planet[];
 }
 
 export class Planet {

@@ -2,20 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { PlanetsService } from './services/planets.service';
 
 @NgModule({
-    imports:[ 
+    imports: [
         CommonModule,
         HttpClientModule,
-        FormsModule 
+        FormsModule
     ],
-    exports:[ 
+    exports: [
         CommonModule,
         HttpClientModule,
-        FormsModule 
+        FormsModule
     ],
-    providers:[ PlanetsService ]
+    providers: [ PlanetsService ]
 })
 export class SharedModule {}
