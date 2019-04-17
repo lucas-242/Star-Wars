@@ -1,27 +1,22 @@
-# StarWars
+# Star Wars
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+## Description
 
-## Development server
+This is a challenge proposed by B2W that consists of an application that serves as the basis for a game, whose objective is to guess a planet of the Star Wars universe through some information as name, climate, population, terrain and quantity of films in which it appeared.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Rules and Functioning
 
-## Code scaffolding
+The rules of the game are up to the players. For example, players who are trying to guess may ask 2 of the features before trying to guess the name of the planet.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Players can generate a random planet by clicking the random button or they can search for a planet by entering their name or ID number (according to the API there are 61 planets until today, so the ID goes from 1 to 61).
 
-## Build
+A search by name may return more than 1 result, showing other buttons by which the player will navigate through the results, they are: next, previous, and page numbers. After a search if the player clicks the random button, search results will be lost and a random planet will appear on the screen.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## How was it done
 
-## Running unit tests
+This project was developing using:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Angular 7 to create the components and to consume the API.
+- The SASS preprocessor.
+- Bootstrap 4.
+- The SWAPI API, which has a database with Star Wars planets, vehicles, ships, species and characters.

@@ -62,12 +62,12 @@
 <div class="row mx-auto justify-content-center">
 
   <!--Pagination-->
-  <pagination-controls class="col-12 text-center mt-2" (pageChange)="p = $event" responsive="true"
+  <pagination-controls class="col-12 text-center text-nowrap mt-2" (pageChange)="p = $event" responsive="true"
     autoHide="true" *ngIf="planetsSearched?.length != 0">
   </pagination-controls>
 
   <!--Next button - Generate random planet-->
   <div class="col-12 text-center mt-4">
-    <button class="btn font-large text-light" type="button" (click)="getPlanetByRandomId()">Next</button>
+    <button class="btn font-large text-light" type="button" (click)="getPlanetByRandomId()">random</button>
   </div>
 </div>
