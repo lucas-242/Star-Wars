@@ -2,13 +2,11 @@
 <div class="row mx-sm-auto justify-content-sm-center">
   <div class="col-1"></div>
 
-  <div class="col-12 col-sm-8 mb-3 trasition" [ngClass]="{'opacity': showHint}">
+  <div class="col-12 col-sm-8 mb-3" *ngIf="showHint" [@fadeInOut]>
     insert the planet name or id, you must
     <img src="../../../assets/yoda.png">
   </div>
 </div>
-
-
 
 <form #search="ngForm">
   <div class="row mx-sm-auto justify-content-sm-center">
@@ -64,12 +62,12 @@
 <div class="row mx-auto justify-content-center">
 
   <!--Pagination-->
-  <pagination-controls class="col-12 col-sm-6 text-center" (pageChange)="p = $event" responsive="true"
+  <pagination-controls class="col-12 text-center mt-2" (pageChange)="p = $event" responsive="true"
     autoHide="true" *ngIf="planetsSearched?.length != 0">
   </pagination-controls>
 
   <!--Next button - Generate random planet-->
-  <div class="col-12 col-sm-6 text-center mt-4">
-    <button class="btn font-large" type="button" (click)="getPlanetByRandomId()">Next</button>
+  <div class="col-12 text-center mt-4">
+    <button class="btn font-large text-light" type="button" (click)="getPlanetByRandomId()">Next</button>
   </div>
 </div>

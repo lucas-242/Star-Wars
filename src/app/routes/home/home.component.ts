@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { state, trigger, style, transition, animate } from '@angular/animations';
 import { Angular2SwapiService, Planet as PlanetSwapi } from 'angular2-swapi';
 
 import { Planet } from 'src/shared/entities/planet';
@@ -7,7 +8,15 @@ import { PlanetsService } from 'src/shared/services/planets.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(1200)),
+    ]),
+  ]
 })
 export class HomeComponent implements OnInit {
 
@@ -16,6 +25,9 @@ export class HomeComponent implements OnInit {
    */
   planets: Array<Planet> = new Array<Planet>();
 
+  /**
+   * Planetas que já foram pesquisados, "cache"
+   */
   planetsSearched: Array<Planet>;
 
   /**
@@ -48,7 +60,6 @@ export class HomeComponent implements OnInit {
         Object.assign(planet, randomPlanet);
         planet.id = randomPlanet != null ? Number(randomPlanet.url.replace(/[^0-9]/g, '')) : 0;
         this.planets.push(planet);
-        console.log(this.planets);
       },
       (error) => {
         console.log(error);

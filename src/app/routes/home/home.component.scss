@@ -12,35 +12,21 @@ img {
 .card {
     background-color: transparent;    
     border: $yellow solid 9px !important;
-    // border-style: solid;
-    // border-width: 9px;
-    // border-image: 
-    // linear-gradient(
-    //   to bottom, 
-    //   #FFF120, 
-    //   white
-    // ) 1 100% !important;
 }
 
 .font-large {
     font-size: 23px !important;
 }
 
-// .pagination /deep/ .current {
-//     background: $yellow;
-// }
-
-.trasition {
-    -webkit-transition: opacity 1500ms linear, display 0ms linear;
-    -moz-transition: opacity 1500ms linear, display 0ms linear;
-    -ms-transition: opacity 1500ms linear, display 0ms linear ;
-    -o-transition: opacity 1500ms linear, display 0ms linear;
-    transition: opacity 1500ms linear, display 0ms linear;
-    opacity: 0;
-    display: none;
+// Controles da paginação
+pagination-controls /deep/ a {
+    color: $yellow;
 }
 
-.opacity {
-    display: block;
-    opacity: 100;
+pagination-controls /deep/ .current {
+    background-color: #fff;
+}
+
+pagination-controls /deep/ .current span {
+    color: #000000
 }
